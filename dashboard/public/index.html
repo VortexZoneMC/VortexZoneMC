@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Painel VTX</title>
+<style>
+body { font-family: Arial; background:#111; color:white; padding:20px; }
+.box { background:#222; padding:20px; border-radius:10px; margin-bottom:20px; }
+input,button { padding:10px; border-radius:6px; border:none; margin-top:10px; }
+button { background:#4b7bec; color:white; cursor:pointer; }
+</style>
+<script>
+function saveToken(){
+  const token=document.getElementById('token').value;
+  if(!token) return alert("Insira um token!");
+  localStorage.setItem("vtx_token", token);
+  alert("Token salvo!");
+}
+function load(){
+  const t=localStorage.getItem("vtx_token");
+  if(t) document.getElementById("token").value=t;
+}
+function loginDiscord(){
+  const client="YOUR_CLIENT_ID";
+  const redirect="YOUR_REDIRECT_URL";
+  const url=`https://discord.com/oauth2/authorize?client_id=${client}&redirect_uri=${encodeURIComponent(redirect)}&response_type=code&scope=identify%20guilds`;
+  window.location=url;
+}
+</script>
+</head>
+<body onload="load()">
+<h1>Painel VTX</h1>
+
+<div class="box">
+  <h2>Token do Bot</h2>
+  <input id="token" placeholder="Cole o token do bot aqui">
+  <button onclick="saveToken()">Salvar</button>
+</div>
+
+<div class="box">
+  <h2>Login com Discord</h2>
+  <button onclick="loginDiscord()">Conectar com Discord</button>
+</div>
+
+<p>Após conectar, o painel exibirá servidores e permitirá editar mensagens.</p>
+
+</body>
+</html>

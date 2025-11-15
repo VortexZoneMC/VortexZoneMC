@@ -1,0 +1,19 @@
+{
+  "name": "discord-bot-panel-full",
+  "version": "1.0.0",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js",
+    "dashboard": "node dashboard/server.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "mongoose": "^7.0.0",
+    "axios": "^1.4.0",
+    "xml2js": "^0.4.23",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3"
+  }
+}
